@@ -1,0 +1,4 @@
+---
+# handlers file for /Users/heat6915/Projects/perfsonar/perfsonar
+- name: Restart MySQL
+  service: name=mysqld state=restarted

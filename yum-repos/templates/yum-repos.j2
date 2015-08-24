@@ -1,0 +1,15 @@
+{% for repofile in item.itervalues() %}
+{% for repo in repofile %}
+[{{ repo }}]
+name={{ repo.name }}
+{% if repo.baseurl is defined %}
+baseurl={{ repo.baseurl }}
+{% endif %}
+{% if repo.mirrorlist is defined %}
+mirrorlist={{ repo.mirrorlist }}
+{% endif %}
+{% if repo.excludepkgs is defined %}
+excludepkgs={{ repo.excludepkgs }}
+{% endif %}
+{% endfor %}
+{% endfor %}

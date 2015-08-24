@@ -1,0 +1,5 @@
+---
+# tasks file for /Users/heat6915/Projects/perfsonar/yum-repos
+- name: Create repos.d
+  template: src=yum-repos.j2 dest="/etc/yum.repos.d/{{ item.iterkeys().next() }}"
+  with_items: yum_repo_files

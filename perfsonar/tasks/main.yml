@@ -1,0 +1,27 @@
+---
+# tasks file for /Users/heat6915/Projects/perfsonar/perfsonar
+- name: Upgrade system
+  yum: name=* state=latest
+#    - name: Install yum-utils from YUM so DNF would fix
+#      yum: name={{ item }} state=present
+#      with_items: yum_packages
+
+#    - name: Install EPEL 7
+#      yum: name={{ epel }} state=present
+
+#    - name: Install Internet2 repo
+#      yum: name={{ int2_repo }} state=present
+
+- name: Manutal clean
+  command: yum clean all
+
+- name: Install PerfSonal Packages
+  yum: name={{item}} state=present
+  with_items: "{{ yum_packages }}"
+
+- name: MySQL Database
+  service: name=mysqld state=started
+
+- name: initialize_databases
+  command: /opt/perfsonar_ps/toolkit/scripts/initialize_databases
+  notify: Restart MySQL

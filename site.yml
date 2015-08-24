@@ -1,0 +1,8 @@
+---
+# Found https://github.com/treydock/puppet-perfsonar/blob/master/manifests/init.pp
+# http://anonsvn.internet2.edu/svn/nptoolkit/trunk/kickstarts/centos6-netinstall.cfg
+- name: Setup and install perfsonar
+  hosts: perfsonar*
+  remote_user: root
+  roles:
+    - perfsonar

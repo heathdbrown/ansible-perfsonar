@@ -1,0 +1,62 @@
+---
+# vars file for /Users/heat6915/Projects/perfsonar/perfsonar
+yum_packages:
+  - epel-release
+  - centos-release-SCL
+  - datastax-repo
+  - kmod-sk98lin
+  - openssh-clients
+  - openssh-server
+  - web100_userland
+  - Internet2-repo
+  - iperf3
+  - tcptrace
+  - xplot-tcptrace
+  - bwctl-client
+  - bwctl-server
+  - ndt
+  - npad
+  - nuttcp
+  - owamp-client
+  - owamp-server
+  - perl-perfSONAR_PS-Toolkit
+  - perl-perfSONAR_PS-Toolkit-SystemEnvironment
+  - perl-perfSONAR_PS-LSCacheDaemon
+  - perl-perfSONAR_PS-LSRegistrationDaemon
+  - perl-perfSONAR_PS-MeshConfig-Agent
+  - perl-perfSONAR_PS-PingER-server
+  - perl-perfSONAR_PS-SimpleLS-BootStrap-client
+  - perl-perfSONAR_PS-SNMPMA
+  - perl-perfSONAR_PS-TracerouteMA-client
+  - perl-perfSONAR_PS-TracerouteMA-config
+  - perl-perfSONAR_PS-TracerouteMA-server
+  - perl-perfSONAR_PS-perfSONARBUOY-client
+  - perl-perfSONAR_PS-perfSONARBUOY-config
+  - perl-perfSONAR_PS-perfSONARBUOY-server
+yum_repo_files:
+  - a-base.repo:
+      - name: a-base
+        baseurl: http://linux.mirrors.es.net/centos/{{ansible_distribution_major_version}}/os/{{ansible_architecture}}
+        excludepkgs: kernel*
+  - a-updates.repo:
+      - name: a-updates
+        mirrorlist: http://software.internet2.edu/rpms/el{{ansible_distribution_major_version}}/mirrors-Toolkit-CentOS-Updates-{{ansible_architecture}}
+        excludepkgs: kernel*
+  - a-EPEL.repo:
+      - name: a-EPEL
+        mirrorlist: http://software.internet2.edu/rpms/el{{ansible_distribution_major_version}}/mirrors-Toolkit-EPEL-{{ansible_architecture}}
+  - a-Internet2.repo:
+      - name: a-Internet2
+        baseurl: http://software.internet2.edu/rpms/el{{ansible_distribution_major_version}}/{{ansible_architecture}}/main/
+  - a-Web100.repo:
+      - name: a-Web100
+        baseurl: http://software.internet2.edu/web100_kernel/rpms/el{{ansible_distribution_major_version}}/{{ansible_architecture}}/main/
+  - a-DataStax.repo:
+      - name: a-DataStax
+        baseurl: http://rpm.datastax.com/community
+  - a-scl.repo:
+      - name: a-scl
+        baseurl: http://linux.mirrors.es.net/centos/{{ansible_distribution_major_version}}/SCL/{{ansible_architecture}}/
+int2_repo: http://software.internet2.edu/rpms/{{ansible_distribution_major_version}}/{{ansible_architecture}}/main/RPMS/Internet2-repo-0.5-7.noarch.rpm
+int2_gpg: http://software.internet2.edu/rpms/RPM-GPG-KEY-Internet2
+epel: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ansible_distribution_major_version}}.noarch.rpm
